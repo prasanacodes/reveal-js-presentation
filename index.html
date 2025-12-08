@@ -1,133 +1,149 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Data Science & Finance Presentation</title>
+  <meta charset="utf-8" />
+  <title>Quarterly Earnings Report</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/dracula.min.css" id="theme">
+  <!-- Reveal core CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/monokai.min.css">
+  <!-- Syntax highlighting -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css">
+
+  <style>
+    .highlight-box {
+      background: #f4f6f8;
+      padding: 20px;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="reveal">
-        <div class="slides">
+  <div class="reveal">
+    <div class="slides">
 
-            <section>
-                <h1>Financial Modeling</h1>
-                <h3>A Data Science Approach</h3>
-                <p>
-                    <small>Created by <br>
-                    <a href="mailto:22f1001255@ds.study.iitm.ac.in">22f1001255@ds.study.iitm.ac.in</a></small>
-                </p>
-                
-                <aside class="notes">
-                    Welcome everyone. Introduce yourself and mention the IITM email address for contact.
-                </aside>
-            </section>
+      <!-- Title Slide -->
+      <section>
+        <h2>Quarterly Earnings Report</h2>
+        <p><strong>Prepared by:</strong></p>
+        <p>22f1001255@ds.study.iitm.ac.in</p>
 
-            <section data-markdown>
-                <textarea data-template>
-                    ## Why Markdown?
-                    
-                    Markdown allows you to write content quickly without worrying about HTML tags.
-                    
-                    * It is **clean**.
-                    * It is *fast*.
-                    * It integrates natively with Reveal.js.
-                    
-                    > "Simplicity is the ultimate sophistication."
-                </textarea>
-            </section>
+        <aside class="notes">
+          Welcome stakeholders and briefly outline the agenda:
+          performance, growth, risks, and outlook.
+        </aside>
+      </section>
 
-            <section>
-                <h2>The Data Pipeline</h2>
-                <p>Elements below will appear one by one:</p>
-                <ul>
-                    <li class="fragment fade-in-then-semi-out">1. Data Ingestion</li>
-                    <li class="fragment fade-in-then-semi-out">2. Data Cleaning</li>
-                    <li class="fragment fade-in-then-semi-out">3. Feature Engineering</li>
-                    <li class="fragment highlight-blue">4. Model Training (Critical Step)</li>
-                    <li class="fragment">5. Deployment</li>
-                </ul>
+      <!-- Markdown Slide -->
+      <section data-markdown>
+        <textarea data-template>
+### Executive Summary (Markdown Slide)
 
-                <aside class="notes">
-                    Press the generic 'Down' or 'Right' arrow key to trigger these fragments. 
-                    Explain that step 4 is highlighted blue because it is the focus of this talk.
-                </aside>
-            </section>
+- Strong **revenue growth** this quarter
+- Improved **operational efficiency**
+- Stable **profit margins**
+- Positive outlook for next quarter
+        </textarea>
 
-            <section>
-                <h2>Black-Scholes Model</h2>
-                <p>Calculating the theoretical price of options:</p>
-                
-                <div style="font-size: 0.8em; margin-top: 30px;">
-                    \[
-                    C(S, t) = N(d_1)S - N(d_2)Ke^{-r(T-t)}
-                    \]
-                </div>
+        <aside class="notes">
+          Emphasize how this summary aligns with strategic goals.
+        </aside>
+      </section>
 
-                <p style="font-size: 0.6em; margin-top: 20px;">
-                    Where: <br>
-                    \[ d_1 = \frac{\ln(S/K) + (r + \frac{\sigma^2}{2})(T-t)}{\sigma\sqrt{T-t}} \]
-                </p>
+      <!-- Fragments / Animation -->
+      <section>
+        <h3>Key Financial Highlights</h3>
+        <ul>
+          <li class="fragment">Revenue: ₹1,250 Cr</li>
+          <li class="fragment">Net Profit: ₹210 Cr</li>
+          <li class="fragment fade-up">QoQ Growth: 12%</li>
+          <li class="fragment fade-up">YoY Growth: 18%</li>
+        </ul>
 
-                <aside class="notes">
-                    Speaker Note: Explain that S is current stock price, K is strike price, r is risk-free rate.
-                </aside>
-            </section>
+        <aside class="notes">
+          Pause briefly after each metric to allow stakeholders
+          to absorb the numbers.
+        </aside>
+      </section>
 
-            <section>
-                <h2>Python Implementation</h2>
-                <p>Calculating Compound Interest</p>
-                
-                <pre><code data-trim data-noescape class="python">
-def calculate_compound_interest(principal, rate, time):
-    """
-    Formula: A = P(1 + R/100)^t
-    """
-    amount = principal * (pow((1 + rate / 100), time))
-    return amount
+      <!-- Code Slide -->
+      <section>
+        <h3>Data Analysis Workflow</h3>
+        <pre><code class="python" data-line-numbers>
+import pandas as pd
 
-# Example usage
-p = 10000
-r = 5.25
-t = 5
+# Load earnings data
+df = pd.read_csv("earnings_q4.csv")
 
-print(f"Final Amount: {calculate_compound_interest(p, r, t)}")
-                </code></pre>
-            </section>
+# Calculate profit margin
+df["profit_margin"] = df["net_profit"] / df["revenue"]
 
-            <section>
-                <h2>Thank You</h2>
-                <p>Questions?</p>
-                <br>
-                <p style="font-size: 0.5em;">Contact: 22f1001255@ds.study.iitm.ac.in</p>
-            </section>
+print(df[["quarter", "profit_margin"]])
+        </code></pre>
 
+        <aside class="notes">
+          Mention that analytics pipelines are automated
+          and reproducible for audit purposes.
+        </aside>
+      </section>
+
+      <!-- Math / Financial Formula -->
+      <section>
+        <h3>Financial Metrics</h3>
+
+        <div class="highlight-box">
+          <p>
+            Net Profit Margin:
+          </p>
+          \[
+            \text{Profit Margin} = \frac{\text{Net Profit}}{\text{Total Revenue}}
+          \]
         </div>
+
+        <aside class="notes">
+          Explain how improved cost control contributed
+          to margin expansion.
+        </aside>
+      </section>
+
+      <!-- Closing Slide -->
+      <section>
+        <h3>Outlook & Next Steps</h3>
+        <ul>
+          <li class="fragment">Expand digital offerings</li>
+          <li class="fragment">Optimize working capital</li>
+          <li class="fragment">Strengthen risk controls</li>
+        </ul>
+
+        <aside class="notes">
+          End with confidence and open the floor for questions.
+        </aside>
+      </section>
+
     </div>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/markdown/markdown.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
+  <!-- Reveal JS -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
 
-    <script>
-        // Initialize Reveal
-        Reveal.initialize({
-            hash: true,
-            controls: true,
-            progress: true,
-            center: true,
-            
-            // Load plugins
-            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
-        });
-    </script>
+  <!-- Plugins -->
+  <script src="https://unpkg.com/reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      controls: true,
+      progress: true,
+      history: true,
+      transition: "slide",
+      plugins: [ RevealMarkdown, RevealHighlight, RevealMath, RevealNotes ]
+    });
+  </script>
 </body>
 </html>
